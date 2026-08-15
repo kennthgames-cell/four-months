@@ -15,9 +15,7 @@
 body {
     margin: 0;
     min-height: 100vh;
-
     font-family: Georgia, serif;
-
     color: #7d1837;
 
     background: linear-gradient(
@@ -33,27 +31,14 @@ body {
     overflow: hidden;
 }
 
-
-/* =========================
-   BOOK
-========================= */
-
 .book {
     width: min(900px, 92vw);
     height: min(650px, 88vh);
-
     position: relative;
 }
 
-
-/* =========================
-   STORY PAGES
-========================= */
-
 .story-page {
-
     position: absolute;
-
     inset: 0;
 
     background: #fffafc;
@@ -73,14 +58,11 @@ body {
     animation: pageAppear 0.5s ease;
 }
 
-
 .story-page.active {
     display: block;
 }
 
-
 @keyframes pageAppear {
-
     from {
         opacity: 0;
         transform: translateX(25px);
@@ -90,18 +72,13 @@ body {
         opacity: 1;
         transform: translateX(0);
     }
-
 }
 
 
-/* =========================
-   COVER
-========================= */
+/* COVER */
 
 .cover {
-
     position: absolute;
-
     inset: 0;
 
     background:
@@ -116,11 +93,8 @@ body {
     border-radius: 18px;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     align-items: center;
 
     text-align: center;
@@ -132,145 +106,89 @@ body {
         rgba(120, 20, 50, 0.3);
 }
 
-
 .cover .heart {
-
     font-size: 75px;
-
-    animation:
-        heartbeat 1.5s infinite;
+    animation: heartbeat 1.5s infinite;
 }
 
-
 @keyframes heartbeat {
-
     50% {
         transform: scale(1.18);
     }
-
 }
 
-
 .cover h1 {
-
-    font-size:
-        clamp(
-            42px,
-            7vw,
-            70px
-        );
-
+    font-size: clamp(42px, 7vw, 70px);
     margin: 15px 0;
 }
 
-
 .cover p {
-
     font-size: 22px;
-
     font-style: italic;
 }
 
 
-/* =========================
-   HEADINGS
-========================= */
+/* TEXT */
 
 h1,
 h2,
 h3 {
-
     color: #a71943;
-
 }
-
 
 h2 {
-
     text-align: center;
-
     font-size: 34px;
-
     margin-top: 0;
-
 }
-
 
 p {
-
     line-height: 1.7;
-
 }
 
 
-/* =========================
-   BUTTONS
-========================= */
+/* BUTTONS */
 
 button {
-
     border: none;
 
     background: #b31345;
-
     color: white;
 
-    padding:
-        12px 22px;
+    padding: 12px 22px;
 
     border-radius: 30px;
 
     cursor: pointer;
 
-    font-family:
-        Georgia,
-        serif;
-
+    font-family: Georgia, serif;
     font-size: 16px;
 
     transition: 0.25s;
 }
 
-
 button:hover {
-
     transform: scale(1.06);
-
     background: #d62d60;
-
 }
-
 
 .cover button {
-
     background: white;
-
     color: #b31345;
-
     margin-top: 20px;
-
 }
-
 
 .cover button:hover {
-
     background: #fff0f5;
-
 }
 
 
-/* =========================
-   NAVIGATION
-========================= */
+/* NAVIGATION */
 
 .navigation {
-
     position: sticky;
 
     bottom: 0;
-
-    left: 0;
-    right: 0;
 
     margin-top: 35px;
 
@@ -280,42 +198,29 @@ button:hover {
 
     display: flex;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
     align-items: center;
 }
 
-
 .page-number {
-
     font-size: 14px;
-
     opacity: 0.6;
-
 }
 
 
-/* =========================
-   PHOTO MEMORY
-========================= */
+/* SINGLE PHOTO */
 
 .memory {
-
     max-width: 700px;
 
-    margin:
-        20px auto;
+    margin: 20px auto;
 
     text-align: center;
-
 }
 
-
 .memory img {
-
     width: 360px;
-
     max-width: 90%;
 
     height: 270px;
@@ -331,43 +236,28 @@ button:hover {
     cursor: pointer;
 
     transition: 0.3s;
-
 }
 
-
 .memory img:hover {
-
     transform:
         scale(1.04)
         rotate(1deg);
-
 }
-
 
 .memory h3 {
-
     font-size: 25px;
-
     margin-bottom: 8px;
-
 }
-
 
 .memory p {
-
     font-style: italic;
-
     font-size: 17px;
-
 }
 
 
-/* =========================
-   TWO PHOTO MEMORY
-========================= */
+/* TWO PHOTOS */
 
 .photo-pair {
-
     display: flex;
 
     justify-content: center;
@@ -379,14 +269,10 @@ button:hover {
     flex-wrap: wrap;
 
     margin-top: 30px;
-
 }
 
-
 .photo-pair img {
-
     width: 290px;
-
     height: 220px;
 
     object-fit: cover;
@@ -400,72 +286,37 @@ button:hover {
     cursor: pointer;
 
     transition: 0.3s;
-
 }
 
-
 .photo-pair img:hover {
-
     transform:
         scale(1.05)
         rotate(1deg);
-
 }
 
-
 .pair-caption {
-
     text-align: center;
 
     max-width: 650px;
 
-    margin:
-        25px auto;
+    margin: 25px auto;
 }
 
 
-/* =========================
-   STORY TEXT
-========================= */
+/* STORY */
 
 .story-text {
-
     max-width: 650px;
 
-    margin:
-        30px auto;
+    margin: 30px auto;
 
     font-size: 18px;
-
 }
 
 
-/* =========================
-   MONTH CARD
-========================= */
-
-.month-card {
-
-    background: #fff0f5;
-
-    border-radius: 15px;
-
-    padding: 25px;
-
-    max-width: 700px;
-
-    margin:
-        20px auto;
-
-}
-
-
-/* =========================
-   LETTER
-========================= */
+/* LETTER */
 
 .envelope {
-
     font-size: 100px;
 
     text-align: center;
@@ -473,20 +324,13 @@ button:hover {
     cursor: pointer;
 
     transition: 0.3s;
-
 }
-
 
 .envelope:hover {
-
-    transform:
-        scale(1.1);
-
+    transform: scale(1.1);
 }
 
-
 .letter {
-
     display: none;
 
     background: #fff0f5;
@@ -497,51 +341,31 @@ button:hover {
 
     max-width: 680px;
 
-    margin:
-        20px auto;
+    margin: 20px auto;
 
-    animation:
-        appear 0.5s ease;
-
+    animation: appear 0.5s ease;
 }
-
 
 .letter.open {
-
     display: block;
-
 }
 
-
 @keyframes appear {
-
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(15px);
-
+        transform: translateY(15px);
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0);
-
+        transform: translateY(0);
     }
-
 }
 
 
-/* =========================
-   FINAL PAGE
-========================= */
+/* FINAL */
 
 .final {
-
     height: 100%;
 
     display: flex;
@@ -553,30 +377,20 @@ button:hover {
     align-items: center;
 
     text-align: center;
-
 }
-
 
 .final h1 {
-
     font-size: 58px;
-
 }
-
 
 .final-heart {
-
     font-size: 75px;
-
 }
 
 
-/* =========================
-   FLOATING HEARTS
-========================= */
+/* HEARTS */
 
 .floating-heart {
-
     position: fixed;
 
     pointer-events: none;
@@ -589,90 +403,57 @@ button:hover {
     z-index: 999;
 }
 
-
 @keyframes floatUp {
-
     from {
-
-        transform:
-            translateY(0);
-
+        transform: translateY(0);
         opacity: 1;
-
     }
 
     to {
-
-        transform:
-            translateY(-180px);
-
+        transform: translateY(-180px);
         opacity: 0;
-
     }
-
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width: 700px) {
 
     .story-page {
-
         padding: 30px;
-
     }
-
 
     .memory img {
-
         width: 280px;
-
         height: 210px;
-
     }
-
 
     .photo-pair img {
-
         width: 230px;
-
         height: 175px;
-
     }
-
 
     h2 {
-
         font-size: 28px;
-
     }
 
-
     .cover h1 {
-
         font-size: 42px;
-
     }
 
 }
 
 </style>
-
 </head>
 
 
 <body>
 
-
 <div class="book">
 
 
-<!-- ================================================= -->
 <!-- COVER -->
-<!-- ================================================= -->
 
 <section
     class="story-page active"
@@ -693,9 +474,7 @@ button:hover {
             Four months of us
         </p>
 
-        <button
-            onclick="goToPage(1)"
-        >
+        <button onclick="goToPage(1)">
             Begin Our Journey ♡
         </button>
 
@@ -704,9 +483,7 @@ button:hover {
 </section>
 
 
-<!-- ================================================= -->
 <!-- INTRO -->
-<!-- ================================================= -->
 
 <section
     class="story-page"
@@ -742,7 +519,6 @@ button:hover {
 
     </div>
 
-
     <div class="navigation">
 
         <span>
@@ -750,7 +526,7 @@ button:hover {
         </span>
 
         <button onclick="nextPage()">
-            Start → 
+            Start →
         </button>
 
     </div>
@@ -758,9 +534,7 @@ button:hover {
 </section>
 
 
-<!-- ================================================= -->
 <!-- FIRST DATE -->
-<!-- ================================================= -->
 
 <section
     class="story-page"
@@ -770,7 +544,6 @@ button:hover {
     <h2>
         Our First Date ❤️
     </h2>
-
 
     <div class="memory">
 
@@ -796,7 +569,6 @@ button:hover {
 
     </div>
 
-
     <div class="navigation">
 
         <button onclick="previousPage()">
@@ -816,9 +588,7 @@ button:hover {
 </section>
 
 
-<!-- ================================================= -->
 <!-- SECOND DATE -->
-<!-- ================================================= -->
 
 <section
     class="story-page"
@@ -828,7 +598,6 @@ button:hover {
     <h2>
         Our Second Date 💗
     </h2>
-
 
     <div class="memory">
 
@@ -849,7 +618,6 @@ button:hover {
 
     </div>
 
-
     <div class="navigation">
 
         <button onclick="previousPage()">
@@ -869,9 +637,7 @@ button:hover {
 </section>
 
 
-<!-- ================================================= -->
 <!-- PERMISSION -->
-<!-- ================================================= -->
 
 <section
     class="story-page"
@@ -881,7 +647,6 @@ button:hover {
     <h2>
         Asking Permission ♡
     </h2>
-
 
     <div class="memory">
 
@@ -906,7 +671,6 @@ button:hover {
 
     </div>
 
-
     <div class="navigation">
 
         <button onclick="previousPage()">
@@ -926,9 +690,7 @@ button:hover {
 </section>
 
 
-<!-- ================================================= -->
 <!-- ASKED OUT -->
-<!-- ================================================= -->
 
 <section
     class="story-page"
@@ -938,7 +700,6 @@ button:hover {
     <h2>
         The Day I Asked You Out ❤️
     </h2>
-
 
     <div class="memory">
 
@@ -962,7 +723,6 @@ button:hover {
 
     </div>
 
-
     <div class="navigation">
 
         <button onclick="previousPage()">
@@ -982,9 +742,7 @@ button:hover {
 </section>
 
 
-<!-- ================================================= -->
-<!-- ONE MONTH -->
-<!-- ================================================= -->
+<!-- ONE MONTH: BOTH PHOTOS -->
 
 <section
     class="story-page"
@@ -994,7 +752,6 @@ button:hover {
     <h2>
         One Month ❤️
     </h2>
-
 
     <div class="photo-pair">
 
@@ -1009,7 +766,6 @@ button:hover {
         >
 
     </div>
-
 
     <div class="pair-caption">
 
@@ -1030,7 +786,6 @@ button:hover {
 
     </div>
 
-
     <div class="navigation">
 
         <button onclick="previousPage()">
@@ -1050,9 +805,7 @@ button:hover {
 </section>
 
 
-<!-- ================================================= -->
 <!-- CUTE DATE -->
-<!-- ================================================= -->
 
 <section
     class="story-page"
@@ -1062,7 +815,6 @@ button:hover {
     <h2>
         Another Cute Date 💕
     </h2>
-
 
     <div class="memory">
 
@@ -1081,7 +833,6 @@ button:hover {
         </p>
 
     </div>
-
 
     <div class="navigation">
 
@@ -1102,9 +853,7 @@ button:hover {
 </section>
 
 
-<!-- ================================================= -->
 <!-- TWO MONTHS -->
-<!-- ================================================= -->
 
 <section
     class="story-page"
@@ -1114,7 +863,6 @@ button:hover {
     <h2>
         Two Months ❤️
     </h2>
-
 
     <div class="memory">
 
@@ -1138,7 +886,6 @@ button:hover {
 
     </div>
 
-
     <div class="navigation">
 
         <button onclick="previousPage()">
@@ -1158,9 +905,7 @@ button:hover {
 </section>
 
 
-<!-- ================================================= -->
 <!-- JULIE'S BIRTHDAY -->
-<!-- ================================================= -->
 
 <section
     class="story-page"
@@ -1170,7 +915,6 @@ button:hover {
     <h2>
         Julie's Birthday 🎂
     </h2>
-
 
     <div class="memory">
 
@@ -1189,7 +933,6 @@ button:hover {
         </p>
 
     </div>
-
 
     <div class="navigation">
 
@@ -1210,9 +953,7 @@ button:hover {
 </section>
 
 
-<!-- ================================================= -->
-<!-- THREE MONTHS -->
-<!-- ================================================= -->
+<!-- THREE MONTHS: BOTH PHOTOS -->
 
 <section
     class="story-page"
@@ -1222,7 +963,6 @@ button:hover {
     <h2>
         Three Months ❤️
     </h2>
-
 
     <div class="photo-pair">
 
@@ -1237,7 +977,6 @@ button:hover {
         >
 
     </div>
-
 
     <div class="pair-caption">
 
@@ -1261,7 +1000,6 @@ button:hover {
 
     </div>
 
-
     <div class="navigation">
 
         <button onclick="previousPage()">
@@ -1281,9 +1019,7 @@ button:hover {
 </section>
 
 
-<!-- ================================================= -->
 <!-- TARGET -->
-<!-- ================================================= -->
 
 <section
     class="story-page"
@@ -1293,7 +1029,6 @@ button:hover {
     <h2>
         Another Little Memory 🎯
     </h2>
-
 
     <div class="memory">
 
@@ -1318,7 +1053,6 @@ button:hover {
 
     </div>
 
-
     <div class="navigation">
 
         <button onclick="previousPage()">
@@ -1338,9 +1072,7 @@ button:hover {
 </section>
 
 
-<!-- ================================================= -->
 <!-- LITTLE THINGS -->
-<!-- ================================================= -->
 
 <section
     class="story-page"
@@ -1350,7 +1082,6 @@ button:hover {
     <h2>
         The Little Things ♡
     </h2>
-
 
     <div class="story-text">
 
@@ -1382,25 +1113,19 @@ button:hover {
         </p>
 
         <p style="text-align:center; font-size:22px;">
-
             But they mean something to me because
             they're ours. ❤️
-
         </p>
 
     </div>
 
-
     <div style="text-align:center;">
 
-        <button
-            onclick="makeHearts(event)"
-        >
+        <button onclick="makeHearts(event)">
             A Little Surprise ❤️
         </button>
 
     </div>
-
 
     <div class="navigation">
 
@@ -1421,9 +1146,7 @@ button:hover {
 </section>
 
 
-<!-- ================================================= -->
 <!-- FOUR MONTHS -->
-<!-- ================================================= -->
 
 <section
     class="story-page"
@@ -1433,7 +1156,6 @@ button:hover {
     <h2>
         Four Months ❤️
     </h2>
-
 
     <div class="story-text">
 
@@ -1460,17 +1182,11 @@ button:hover {
             Four months of being us.
         </p>
 
-        <p style="
-            text-align:center;
-            font-size:25px;
-        ">
-
+        <p style="text-align:center; font-size:25px;">
             And I wouldn't trade any of it. ❤️
-
         </p>
 
     </div>
-
 
     <div class="navigation">
 
@@ -1491,9 +1207,7 @@ button:hover {
 </section>
 
 
-<!-- ================================================= -->
 <!-- LETTER -->
-<!-- ================================================= -->
 
 <section
     class="story-page"
@@ -1504,13 +1218,9 @@ button:hover {
         A Letter For You 💌
     </h2>
 
-
     <p style="text-align:center;">
-
         Click the envelope.
-
     </p>
-
 
     <div
         class="envelope"
@@ -1518,7 +1228,6 @@ button:hover {
     >
         💌
     </div>
-
 
     <div
         class="letter"
@@ -1565,7 +1274,6 @@ button:hover {
 
     </div>
 
-
     <div class="navigation">
 
         <button onclick="previousPage()">
@@ -1585,9 +1293,7 @@ button:hover {
 </section>
 
 
-<!-- ================================================= -->
 <!-- THE END -->
-<!-- ================================================= -->
 
 <section
     class="story-page"
@@ -1600,56 +1306,32 @@ button:hover {
             ❤️
         </div>
 
-
         <h1>
             The End...
         </h1>
-
 
         <p style="font-size:27px;">
             Not really.
         </p>
 
-
-        <p style="
-            font-size:21px;
-            max-width:600px;
-        ">
-
+        <p style="font-size:21px; max-width:600px;">
             Our four-month journey might have reached
             the end of this little book...
-
         </p>
 
-
-        <p style="
-            font-size:21px;
-            max-width:600px;
-        ">
-
+        <p style="font-size:21px; max-width:600px;">
             But our story is still being written.
-
         </p>
 
-
-        <p style="
-            font-style:italic;
-            font-size:20px;
-        ">
-
+        <p style="font-style:italic; font-size:20px;">
             Here's to all the pages we haven't written yet. ❤️
-
         </p>
 
-
-        <button
-            onclick="makeHearts(event)"
-        >
+        <button onclick="makeHearts(event)">
             Here's to our next chapter ♡
         </button>
 
     </div>
-
 
     <div class="navigation">
 
@@ -1674,10 +1356,7 @@ button:hover {
 <script>
 
 
-/* =========================
-   PAGE SYSTEM
-========================= */
-
+/* PAGE SYSTEM */
 
 let currentPage = 0;
 
@@ -1697,7 +1376,6 @@ function showPage(number) {
                 "page" + i
             );
 
-
         if (page) {
 
             page.classList.remove(
@@ -1708,12 +1386,10 @@ function showPage(number) {
 
     }
 
-
     const selected =
         document.getElementById(
             "page" + number
         );
-
 
     if (selected) {
 
@@ -1723,14 +1399,7 @@ function showPage(number) {
 
     }
 
-
     currentPage = number;
-
-
-    window.scrollTo(
-        0,
-        0
-    );
 
 }
 
@@ -1777,10 +1446,7 @@ function goToPage(number) {
 }
 
 
-/* =========================
-   HEARTS
-========================= */
-
+/* HEART EFFECT */
 
 function makeHearts(event) {
 
@@ -1795,28 +1461,23 @@ function makeHearts(event) {
                 "div"
             );
 
-
         heart.className =
             "floating-heart";
-
 
         heart.innerHTML =
             Math.random() > 0.5
             ? "❤️"
             : "♡";
 
-
         const x =
             event
             ? event.clientX
             : window.innerWidth / 2;
 
-
         const y =
             event
             ? event.clientY
             : window.innerHeight / 2;
-
 
         heart.style.left =
             x +
@@ -1826,16 +1487,13 @@ function makeHearts(event) {
             ) +
             "px";
 
-
         heart.style.top =
             y +
             "px";
 
-
         document.body.appendChild(
             heart
         );
-
 
         setTimeout(
             () => heart.remove(),
@@ -1847,10 +1505,7 @@ function makeHearts(event) {
 }
 
 
-/* =========================
-   LETTER
-========================= */
-
+/* LETTER */
 
 function openLetter() {
 
@@ -1859,18 +1514,15 @@ function openLetter() {
             "letter"
         );
 
-
     letter.classList.toggle(
         "open"
     );
-
 
     makeHearts();
 
 }
 
 </script>
-
 
 </body>
 </html>
