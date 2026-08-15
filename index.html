@@ -1,0 +1,468 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little Story ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+    font-family: Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #8b1638;
+}
+
+.book {
+    width: min(900px, 92vw);
+    height: min(620px, 85vh);
+    position: relative;
+    perspective: 1800px;
+}
+
+.page {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    right: 0;
+    background: #fffafc;
+    border-radius: 0 14px 14px 0;
+    padding: 45px;
+    box-shadow: 0 10px 35px rgba(120, 20, 50, 0.2);
+    transform-origin: left center;
+    transition: transform 1s ease;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+.page.left {
+    left: 0;
+    right: auto;
+    border-radius: 14px 0 0 14px;
+    box-shadow: inset -8px 0 15px rgba(120, 20, 50, 0.06);
+}
+
+.page.flipped {
+    transform: rotateY(-180deg);
+}
+
+.cover {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #b31345, #e83d70);
+    color: white;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(120, 20, 50, 0.3);
+}
+
+.cover h1 {
+    font-size: clamp(38px, 6vw, 65px);
+    margin: 10px;
+}
+
+.cover p {
+    font-size: 20px;
+    font-style: italic;
+}
+
+.heart {
+    font-size: 50px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 5px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.memory {
+    margin: 20px 0;
+    position: relative;
+}
+
+.memory img {
+    width: 150px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    transform: rotate(-2deg);
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.memory img:hover {
+    transform: scale(1.08) rotate(0deg);
+}
+
+.memory p {
+    margin: 8px 0 0;
+    font-style: italic;
+    font-size: 15px;
+}
+
+.dash {
+    position: absolute;
+    left: 75px;
+    top: 120px;
+    height: 70px;
+    border-left: 2px dashed #d83b67;
+}
+
+button {
+    border: none;
+    background: #b31345;
+    color: white;
+    padding: 11px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    transition: .25s;
+}
+
+button:hover {
+    transform: scale(1.06);
+    background: #d62d60;
+}
+
+.next {
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+}
+
+.back {
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+}
+
+.envelope {
+    font-size: 90px;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.envelope:hover {
+    transform: scale(1.08);
+}
+
+.letter {
+    display: none;
+    background: #fff0f5;
+    padding: 20px;
+    border-radius: 12px;
+    animation: appear .6s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.final {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.final h1 {
+    font-size: 45px;
+}
+
+.floating-heart {
+    position: fixed;
+    pointer-events: none;
+    animation: floatUp 2s ease forwards;
+    font-size: 25px;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-180px);
+        opacity: 0;
+    }
+}
+
+@media(max-width:700px) {
+    .book {
+        height: 75vh;
+    }
+
+    .page {
+        width: 100%;
+        border-radius: 14px;
+        padding: 30px;
+    }
+
+    .page.left {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="book">
+
+    <!-- COVER -->
+    <div class="page" id="page1">
+        <div class="cover">
+            <div class="heart">❤️</div>
+            <h1>Our Little Story</h1>
+            <p>Four months of us</p>
+            <button onclick="nextPage()">Open our story ♡</button>
+        </div>
+    </div>
+
+    <!-- PAGE 1 -->
+    <div class="page" id="page2">
+        <h2>Chapter One ♡</h2>
+
+        <p>
+            Four months ago, our little story started.
+            And somehow, all of those little moments became
+            some of my favorite memories.
+        </p>
+
+        <p>
+            This book is a little collection of the places,
+            laughs, adventures, and moments that made
+            these four months ours.
+        </p>
+
+        <button class="next" onclick="nextPage()">Turn the page →</button>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page" id="page3">
+        <h2>Our Adventures 📸</h2>
+
+        <div class="memory">
+            <img src="https://placehold.co/300x220/ffd6e7/8b1638?text=Your+Photo"
+                 onclick="makeHearts(event)">
+            <p>"Put your memory here ♡"</p>
+            <div class="dash"></div>
+        </div>
+
+        <div class="memory">
+            <img src="https://placehold.co/300x220/ffe5ee/8b1638?text=Your+Photo"
+                 onclick="makeHearts(event)">
+            <p>"Another little moment with you."</p>
+        </div>
+
+        <button class="back" onclick="previousPage()">← Back</button>
+        <button class="next" onclick="nextPage()">Next →</button>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page" id="page4">
+        <h2>Little Things ♡</h2>
+
+        <p>Some of my favorite things aren't huge moments.</p>
+
+        <p>They're the random conversations.</p>
+        <p>The inside jokes.</p>
+        <p>The times we couldn't stop laughing.</p>
+        <p>And all the little things that make being with you feel special.</p>
+
+        <button onclick="makeHearts(event)">Click for a little surprise ❤️</button>
+
+        <button class="back" onclick="previousPage()">← Back</button>
+        <button class="next" onclick="nextPage()">Next →</button>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div class="page" id="page5">
+        <h2>Four Months ❤️</h2>
+
+        <p>
+            Four months might not sound like forever,
+            but look at everything we've already made together.
+        </p>
+
+        <p>
+            Four months of memories.
+            Four months of laughs.
+            Four months of being us.
+        </p>
+
+        <p style="text-align:center; font-size:22px;">
+            And I wouldn't trade it for anything.
+        </p>
+
+        <button class="back" onclick="previousPage()">← Back</button>
+        <button class="next" onclick="nextPage()">One more page →</button>
+    </div>
+
+    <!-- LETTER -->
+    <div class="page" id="page6">
+        <div class="final">
+
+            <h2>A Letter For You 💌</h2>
+
+            <div class="envelope" onclick="openLetter()">
+                💌
+            </div>
+
+            <p>Click the envelope ♡</p>
+
+            <div class="letter" id="letter">
+                <p>
+                    Happy four months ❤️
+                </p>
+
+                <p>
+                    Replace this with your own message to her.
+                    Tell her about your favorite memories,
+                    what she means to you, and what you're
+                    looking forward to together.
+                </p>
+
+                <p>
+                    Love,<br>
+                    Kenny ♡
+                </p>
+            </div>
+
+            <button class="back" onclick="previousPage()">← Back</button>
+            <button class="next" onclick="nextPage()">The last page →</button>
+
+        </div>
+    </div>
+
+    <!-- FINAL PAGE -->
+    <div class="page" id="page7">
+        <div class="final">
+
+            <h1>The End...</h1>
+
+            <p style="font-size:25px;">Not really. ❤️</p>
+
+            <p>
+                Our story is still being written.
+            </p>
+
+            <p style="font-style:italic;">
+                And I can't wait to see what the next pages hold.
+            </p>
+
+            <div style="font-size:45px;">♡</div>
+
+            <button onclick="makeHearts(event)">
+                Here's to our next chapter
+            </button>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+let currentPage = 1;
+
+function nextPage() {
+    const page = document.getElementById("page" + currentPage);
+
+    if (page && currentPage < 7) {
+        page.classList.add("flipped");
+        currentPage++;
+        makeHearts();
+    }
+}
+
+function previousPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        const page = document.getElementById("page" + currentPage);
+
+        if (page) {
+            page.classList.remove("flipped");
+        }
+    }
+}
+
+function makeHearts(event) {
+
+    for (let i = 0; i < 8; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "floating-heart";
+        heart.innerHTML = Math.random() > .5 ? "❤️" : "♡";
+
+        heart.style.left =
+            (event ? event.clientX : window.innerWidth / 2)
+            + (Math.random() * 100 - 50) + "px";
+
+        heart.style.top =
+            (event ? event.clientY : window.innerHeight / 2)
+            + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 2000);
+    }
+}
+
+function openLetter() {
+
+    const letter = document.getElementById("letter");
+
+    if (letter.style.display === "block") {
+        letter.style.display = "none";
+    } else {
+        letter.style.display = "block";
+        makeHearts();
+    }
+}
+
+</script>
+
+</body>
+</html>
+```
