@@ -23,8 +23,8 @@ body {
 }
 
 .book {
-    width: min(900px, 92vw);
-    height: min(620px, 85vh);
+    width: min(950px, 94vw);
+    height: min(650px, 88vh);
     position: relative;
     perspective: 1800px;
 }
@@ -36,23 +36,24 @@ body {
     right: 0;
     background: #fffafc;
     border-radius: 0 14px 14px 0;
-    padding: 45px;
+    padding: 40px;
     box-shadow: 0 10px 35px rgba(120, 20, 50, 0.2);
     transform-origin: left center;
     transition: transform 1s ease;
     backface-visibility: hidden;
-    overflow: hidden;
+    overflow-y: auto;
+    z-index: 1;
 }
 
 .page.left {
     left: 0;
     right: auto;
     border-radius: 14px 0 0 14px;
-    box-shadow: inset -8px 0 15px rgba(120, 20, 50, 0.06);
 }
 
 .page.flipped {
     transform: rotateY(-180deg);
+    z-index: 0;
 }
 
 .cover {
@@ -96,13 +97,18 @@ h2 {
     margin-top: 5px;
 }
 
+h3 {
+    color: #b31345;
+    margin-bottom: 8px;
+}
+
 p {
     line-height: 1.6;
 }
 
 .memory {
-    margin: 20px 0;
-    position: relative;
+    margin: 18px 0 28px;
+    text-align: center;
 }
 
 .memory img {
@@ -114,6 +120,11 @@ p {
     box-shadow: 0 5px 15px rgba(0,0,0,.2);
     cursor: pointer;
     transition: .3s;
+    margin: 5px;
+}
+
+.memory img:nth-child(even) {
+    transform: rotate(2deg);
 }
 
 .memory img:hover {
@@ -126,12 +137,29 @@ p {
     font-size: 15px;
 }
 
-.dash {
-    position: absolute;
-    left: 75px;
-    top: 120px;
-    height: 70px;
-    border-left: 2px dashed #d83b67;
+.month {
+    background: #fff0f5;
+    padding: 14px;
+    border-radius: 12px;
+    margin: 15px 0;
+}
+
+.month h3 {
+    margin-top: 0;
+}
+
+.month img {
+    width: 110px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 4px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.month img:hover {
+    transform: scale(1.07);
 }
 
 button {
@@ -187,6 +215,7 @@ button:hover {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -205,11 +234,30 @@ button:hover {
     font-size: 45px;
 }
 
+.timeline {
+    border-left: 3px solid #d83b67;
+    padding-left: 18px;
+    margin: 20px 5px;
+}
+
+.timeline-item {
+    margin-bottom: 25px;
+}
+
+.timeline-item h3 {
+    margin: 0;
+}
+
+.small-heart {
+    font-size: 22px;
+}
+
 .floating-heart {
     position: fixed;
     pointer-events: none;
     animation: floatUp 2s ease forwards;
     font-size: 25px;
+    z-index: 100;
 }
 
 @keyframes floatUp {
@@ -217,6 +265,7 @@ button:hover {
         transform: translateY(0);
         opacity: 1;
     }
+
     to {
         transform: translateY(-180px);
         opacity: 0;
@@ -224,18 +273,24 @@ button:hover {
 }
 
 @media(max-width:700px) {
+
     .book {
-        height: 75vh;
+        height: 82vh;
     }
 
     .page {
         width: 100%;
         border-radius: 14px;
-        padding: 30px;
+        padding: 28px;
     }
 
     .page.left {
         display: none;
+    }
+
+    .memory img {
+        width: 130px;
+        height: 105px;
     }
 }
 </style>
@@ -248,95 +303,393 @@ button:hover {
     <!-- COVER -->
     <div class="page" id="page1">
         <div class="cover">
+
             <div class="heart">❤️</div>
+
             <h1>Our Little Story</h1>
+
             <p>Four months of us</p>
-            <button onclick="nextPage()">Open our story ♡</button>
+
+            <button onclick="nextPage()">
+                Open our story ♡
+            </button>
+
         </div>
     </div>
 
-    <!-- PAGE 1 -->
+
+    <!-- HOW IT STARTED -->
     <div class="page" id="page2">
-        <h2>Chapter One ♡</h2>
+
+        <h2>How It Started ♡</h2>
 
         <p>
             Four months ago, our little story started.
-            And somehow, all of those little moments became
-            some of my favorite memories.
+            What began as a few conversations slowly became
+            something that meant so much more to both of us.
         </p>
 
-        <p>
-            This book is a little collection of the places,
-            laughs, adventures, and moments that made
-            these four months ours.
-        </p>
+        <div class="timeline">
 
-        <button class="next" onclick="nextPage()">Turn the page →</button>
+            <div class="timeline-item">
+                <h3>The Day I Asked You Out ❤️</h3>
+
+                <p>
+                    One of the biggest little moments in our story.
+                    The day everything changed and we officially
+                    became us.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Asking Permission</h3>
+
+                <p>
+                    I even had to ask for permission to date you.
+                    Looking back, it's funny to think about how
+                    much that little moment meant.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Our First Date</h3>
+
+                <p>
+                    Our first real date together.
+                    One of the first memories that made me realize
+                    just how special our time together could be.
+                </p>
+            </div>
+
+        </div>
+
+        <button class="next" onclick="nextPage()">Next →</button>
+
     </div>
 
-    <!-- PAGE 2 -->
+
+    <!-- FIRST MEMORIES -->
     <div class="page" id="page3">
-        <h2>Our Adventures 📸</h2>
+
+        <h2>Our First Memories 📸</h2>
 
         <div class="memory">
-            <img src="https://placehold.co/300x220/ffd6e7/8b1638?text=Your+Photo"
+
+            <img src="Day of asking out.jpeg"
                  onclick="makeHearts(event)">
-            <p>"Put your memory here ♡"</p>
-            <div class="dash"></div>
+
+            <h3>The Day I Asked You Out</h3>
+
+            <p>
+                The day that started this chapter of our story.
+            </p>
+
         </div>
 
         <div class="memory">
-            <img src="https://placehold.co/300x220/ffe5ee/8b1638?text=Your+Photo"
+
+            <img src="day I asked permission to date you.jpeg"
                  onclick="makeHearts(event)">
-            <p>"Another little moment with you."</p>
+
+            <h3>The Permission Day ♡</h3>
+
+            <p>
+                A pretty important step before we could officially
+                become us.
+            </p>
+
+        </div>
+
+        <div class="memory">
+
+            <img src="First Date.jpeg"
+                 onclick="makeHearts(event)">
+
+            <h3>Our First Date</h3>
+
+            <p>
+                One of the first memories we got to make together.
+            </p>
+
         </div>
 
         <button class="back" onclick="previousPage()">← Back</button>
         <button class="next" onclick="nextPage()">Next →</button>
+
     </div>
 
-    <!-- PAGE 3 -->
+
+    <!-- SUMMER MEMORIES -->
     <div class="page" id="page4">
+
+        <h2>Our Adventures ☀️</h2>
+
+        <div class="memory">
+
+            <img src="cute date.jpeg"
+                 onclick="makeHearts(event)">
+
+            <h3>A Cute Little Date</h3>
+
+            <p>
+                Just another day where spending time together
+                became one of my favorite things.
+            </p>
+
+        </div>
+
+        <div class="memory">
+
+            <img src="One month hangout.jpeg"
+                 onclick="makeHearts(event)">
+
+            <h3>One Month Together ❤️</h3>
+
+            <p>
+                Celebrating another step in our story and getting
+                to spend more time together.
+            </p>
+
+        </div>
+
+        <p style="text-align:center;">
+            And these were only the beginning...
+        </p>
+
+        <button class="back" onclick="previousPage()">← Back</button>
+        <button class="next" onclick="nextPage()">Next →</button>
+
+    </div>
+
+
+    <!-- BIG MEMORY PAGE -->
+    <div class="page" id="page5">
+
+        <h2>Some Of Our Days 💗</h2>
+
+        <div class="memory">
+
+            <h3>Pool Day ☀️</h3>
+
+            <p>
+                It was a hot summer day with friends everywhere.
+                We spent the day in the pool, had fun, and I got
+                to spend time with you too.
+            </p>
+
+        </div>
+
+        <div class="memory">
+
+            <h3>Five Below → Pollo Campero 🍗</h3>
+
+            <p>
+                We went to Five Below, bought some stuff,
+                went to eat at Pollo Campero, then went home
+                and did our own little things.
+            </p>
+
+        </div>
+
+        <div class="memory">
+
+            <h3>Slime, Videos & Us 🎥</h3>
+
+            <p>
+                We made slime, filmed videos, and even made
+                an account for both of us. Just random things
+                that somehow became really good memories.
+            </p>
+
+        </div>
+
+        <button class="back" onclick="previousPage()">← Back</button>
+        <button class="next" onclick="nextPage()">Next →</button>
+
+    </div>
+
+
+    <!-- SCHOOL SUPPLIES MEMORY -->
+    <div class="page" id="page6">
+
+        <h2>Another Favorite Day 🎒</h2>
+
+        <p>
+            We went to get school stuff together and somehow
+            turned something as simple as shopping into another
+            memory.
+        </p>
+
+        <div class="memory">
+
+            <p>
+                We got school supplies, spent time together,
+                ate ice cream, and eventually found that cute hat.
+            </p>
+
+            <p>
+                And of course, we had to take that cute picture. ❤️
+            </p>
+
+        </div>
+
+        <div class="memory">
+
+            <img src="julies cute bday photo.jpeg"
+                 onclick="makeHearts(event)">
+
+            <p>
+                Another picture that became part of our story.
+            </p>
+
+        </div>
+
+        <button class="back" onclick="previousPage()">← Back</button>
+        <button class="next" onclick="nextPage()">Our Months →</button>
+
+    </div>
+
+
+    <!-- MONTHS -->
+    <div class="page" id="page7">
+
+        <h2>Our Months ❤️</h2>
+
+        <div class="month">
+
+            <h3>One Month</h3>
+
+            <p>
+                One month of us. One month of memories,
+                laughs, and getting to know each other even more.
+            </p>
+
+        </div>
+
+        <div class="month">
+
+            <h3>Two Months</h3>
+
+            <img src="2 month.jpeg"
+                 onclick="makeHearts(event)">
+
+            <p>
+                Two months together and another memory
+                added to our story.
+            </p>
+
+        </div>
+
+        <div class="month">
+
+            <h3>Three Months</h3>
+
+            <img src="3 months.jpeg"
+                 onclick="makeHearts(event)">
+
+            <img src="3 montj.jpeg"
+                 onclick="makeHearts(event)">
+
+            <p>
+                Two pictures. One day.
+                Three months of us. ❤️
+            </p>
+
+        </div>
+
+        <button class="back" onclick="previousPage()">← Back</button>
+        <button class="next" onclick="nextPage()">Next →</button>
+
+    </div>
+
+
+    <!-- LITTLE THINGS -->
+    <div class="page" id="page8">
+
         <h2>Little Things ♡</h2>
 
-        <p>Some of my favorite things aren't huge moments.</p>
+        <p>
+            Some of my favorite things aren't huge moments.
+        </p>
 
-        <p>They're the random conversations.</p>
-        <p>The inside jokes.</p>
-        <p>The times we couldn't stop laughing.</p>
-        <p>And all the little things that make being with you feel special.</p>
+        <p>
+            They're the random conversations.
+        </p>
 
-        <button onclick="makeHearts(event)">Click for a little surprise ❤️</button>
+        <p>
+            The inside jokes.
+        </p>
+
+        <p>
+            The times we couldn't stop laughing.
+        </p>
+
+        <p>
+            The little memories that probably wouldn't mean
+            much to anyone else.
+        </p>
+
+        <p>
+            But they mean something to me because they're ours.
+        </p>
+
+        <p>
+            Even the most random days can become my favorite
+            days when I'm spending them with you.
+        </p>
+
+        <div style="text-align:center; margin-top:25px;">
+
+            <button onclick="makeHearts(event)">
+                Click for a little surprise ❤️
+            </button>
+
+        </div>
 
         <button class="back" onclick="previousPage()">← Back</button>
         <button class="next" onclick="nextPage()">Next →</button>
+
     </div>
 
-    <!-- PAGE 4 -->
-    <div class="page" id="page5">
-        <h2>Four Months ❤️</h2>
 
-        <p>
-            Four months might not sound like forever,
-            but look at everything we've already made together.
-        </p>
+    <!-- FOUR MONTHS -->
+    <div class="page" id="page9">
 
-        <p>
-            Four months of memories.
-            Four months of laughs.
-            Four months of being us.
-        </p>
+        <div class="final">
 
-        <p style="text-align:center; font-size:22px;">
-            And I wouldn't trade it for anything.
-        </p>
+            <h2>Four Months ❤️</h2>
+
+            <p>
+                Four months might not sound like forever,
+                but look at everything we've already made together.
+            </p>
+
+            <p>
+                Four months of memories.
+                Four months of laughs.
+                Four months of adventures.
+                Four months of being us.
+            </p>
+
+            <p style="font-size:22px;">
+                And I wouldn't trade any of it.
+            </p>
+
+            <div class="small-heart">
+                ♡ ♡ ♡
+            </div>
+
+        </div>
 
         <button class="back" onclick="previousPage()">← Back</button>
         <button class="next" onclick="nextPage()">One more page →</button>
+
     </div>
 
+
     <!-- LETTER -->
-    <div class="page" id="page6">
+    <div class="page" id="page10">
+
         <div class="final">
 
             <h2>A Letter For You 💌</h2>
@@ -345,123 +698,199 @@ button:hover {
                 💌
             </div>
 
-            <p>Click the envelope ♡</p>
+            <p>
+                Click the envelope ♡
+            </p>
 
             <div class="letter" id="letter">
+
                 <p>
                     Happy four months ❤️
                 </p>
 
                 <p>
-                    Replace this with your own message to her.
-                    Tell her about your favorite memories,
-                    what she means to you, and what you're
-                    looking forward to together.
+                    I don't even know where to start because
+                    somehow four months feels both really short
+                    and like we've already made so many memories.
+                </p>
+
+                <p>
+                    From our first date, to random days together,
+                    to getting food, going places, laughing,
+                    making videos, and just being around each other,
+                    I've loved getting to experience all of it with you.
+                </p>
+
+                <p>
+                    Thank you for being part of all these memories
+                    and for making even the smallest moments feel special.
+                </p>
+
+                <p>
+                    I can't wait to see what other memories we make
+                    and what the next pages of our story look like.
+                </p>
+
+                <p>
+                    Happy four months ❤️
                 </p>
 
                 <p>
                     Love,<br>
                     Kenny ♡
                 </p>
+
             </div>
 
-            <button class="back" onclick="previousPage()">← Back</button>
-            <button class="next" onclick="nextPage()">The last page →</button>
-
         </div>
+
+        <button class="back" onclick="previousPage()">← Back</button>
+        <button class="next" onclick="nextPage()">The last page →</button>
+
     </div>
 
+
     <!-- FINAL PAGE -->
-    <div class="page" id="page7">
+    <div class="page" id="page11">
+
         <div class="final">
 
             <h1>The End...</h1>
 
-            <p style="font-size:25px;">Not really. ❤️</p>
+            <p style="font-size:25px;">
+                Not really. ❤️
+            </p>
 
-            <p>
+            <p style="font-size:20px;">
                 Our story is still being written.
             </p>
 
             <p style="font-style:italic;">
-                And I can't wait to see what the next pages hold.
+                Four months down...
             </p>
 
-            <div style="font-size:45px;">♡</div>
+            <p style="font-style:italic;">
+                and so many more memories to come.
+            </p>
+
+            <div style="font-size:50px;">
+                ♡
+            </div>
 
             <button onclick="makeHearts(event)">
-                Here's to our next chapter
+                Here's to our next chapter ❤️
             </button>
 
         </div>
+
     </div>
 
 </div>
+
 
 <script>
 
 let currentPage = 1;
 
+const totalPages = 11;
+
+
 function nextPage() {
+
     const page = document.getElementById("page" + currentPage);
 
-    if (page && currentPage < 7) {
+    if (page && currentPage < totalPages) {
+
         page.classList.add("flipped");
+
         currentPage++;
+
         makeHearts();
+
     }
+
 }
+
 
 function previousPage() {
+
     if (currentPage > 1) {
+
         currentPage--;
-        const page = document.getElementById("page" + currentPage);
+
+        const page =
+            document.getElementById("page" + currentPage);
 
         if (page) {
+
             page.classList.remove("flipped");
+
         }
+
     }
+
 }
+
 
 function makeHearts(event) {
 
     for (let i = 0; i < 8; i++) {
 
-        const heart = document.createElement("div");
+        const heart =
+            document.createElement("div");
 
-        heart.className = "floating-heart";
-        heart.innerHTML = Math.random() > .5 ? "❤️" : "♡";
+        heart.className =
+            "floating-heart";
+
+        heart.innerHTML =
+            Math.random() > .5 ? "❤️" : "♡";
 
         heart.style.left =
-            (event ? event.clientX : window.innerWidth / 2)
-            + (Math.random() * 100 - 50) + "px";
+            (event
+                ? event.clientX
+                : window.innerWidth / 2)
+            + (Math.random() * 100 - 50)
+            + "px";
 
         heart.style.top =
-            (event ? event.clientY : window.innerHeight / 2)
+            (event
+                ? event.clientY
+                : window.innerHeight / 2)
             + "px";
 
         document.body.appendChild(heart);
 
         setTimeout(() => {
+
             heart.remove();
+
         }, 2000);
+
     }
+
 }
+
 
 function openLetter() {
 
-    const letter = document.getElementById("letter");
+    const letter =
+        document.getElementById("letter");
 
     if (letter.style.display === "block") {
+
         letter.style.display = "none";
+
     } else {
+
         letter.style.display = "block";
+
         makeHearts();
+
     }
+
 }
 
 </script>
 
 </body>
 </html>
-```
