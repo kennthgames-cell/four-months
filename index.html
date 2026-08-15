@@ -15,42 +15,69 @@
 body {
     margin: 0;
     min-height: 100vh;
+
     font-family: Georgia, serif;
+
     color: #7d1837;
-    background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+
+    background: linear-gradient(
+        135deg,
+        #ffd6e7,
+        #fff0f5
+    );
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     overflow: hidden;
 }
 
-/* MAIN BOOK */
+
+/* =========================
+   BOOK
+========================= */
 
 .book {
     width: min(900px, 92vw);
     height: min(650px, 88vh);
+
     position: relative;
 }
 
-/* EACH STORY PAGE */
+
+/* =========================
+   STORY PAGES
+========================= */
 
 .story-page {
+
     position: absolute;
+
     inset: 0;
+
     background: #fffafc;
+
     border-radius: 18px;
+
     padding: 45px;
-    box-shadow: 0 15px 45px rgba(120, 20, 50, 0.22);
+
+    box-shadow:
+        0 15px 45px
+        rgba(120, 20, 50, 0.22);
 
     display: none;
+
     overflow-y: auto;
 
     animation: pageAppear 0.5s ease;
 }
 
+
 .story-page.active {
     display: block;
 }
+
 
 @keyframes pageAppear {
 
@@ -66,34 +93,54 @@ body {
 
 }
 
-/* COVER */
+
+/* =========================
+   COVER
+========================= */
 
 .cover {
+
     position: absolute;
+
     inset: 0;
 
-    background: linear-gradient(145deg, #b31345, #e83d70);
+    background:
+        linear-gradient(
+            145deg,
+            #b31345,
+            #e83d70
+        );
 
     color: white;
 
     border-radius: 18px;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
+
     align-items: center;
 
     text-align: center;
 
     padding: 40px;
 
-    box-shadow: 0 20px 50px rgba(120, 20, 50, 0.3);
+    box-shadow:
+        0 20px 50px
+        rgba(120, 20, 50, 0.3);
 }
 
+
 .cover .heart {
-    font-size: 70px;
-    animation: heartbeat 1.5s infinite;
+
+    font-size: 75px;
+
+    animation:
+        heartbeat 1.5s infinite;
 }
+
 
 @keyframes heartbeat {
 
@@ -103,187 +150,301 @@ body {
 
 }
 
+
 .cover h1 {
-    font-size: clamp(42px, 7vw, 70px);
+
+    font-size:
+        clamp(
+            42px,
+            7vw,
+            70px
+        );
+
     margin: 15px 0;
 }
 
+
 .cover p {
+
     font-size: 22px;
+
     font-style: italic;
 }
 
-/* HEADINGS */
+
+/* =========================
+   HEADINGS
+========================= */
 
 h1,
 h2,
 h3 {
+
     color: #a71943;
+
 }
+
 
 h2 {
+
     text-align: center;
+
     font-size: 34px;
+
     margin-top: 0;
+
 }
 
-h3 {
-    margin-bottom: 6px;
-}
 
 p {
+
     line-height: 1.7;
+
 }
 
-/* BUTTONS */
+
+/* =========================
+   BUTTONS
+========================= */
 
 button {
+
     border: none;
+
     background: #b31345;
+
     color: white;
 
-    padding: 12px 22px;
+    padding:
+        12px 22px;
 
     border-radius: 30px;
 
     cursor: pointer;
 
-    font-family: Georgia, serif;
+    font-family:
+        Georgia,
+        serif;
+
     font-size: 16px;
 
     transition: 0.25s;
 }
 
+
 button:hover {
+
     transform: scale(1.06);
+
     background: #d62d60;
+
 }
+
 
 .cover button {
+
     background: white;
+
     color: #b31345;
+
     margin-top: 20px;
+
 }
+
 
 .cover button:hover {
+
     background: #fff0f5;
+
 }
 
-/* NAVIGATION */
+
+/* =========================
+   NAVIGATION
+========================= */
 
 .navigation {
-    position: absolute;
-    bottom: 20px;
-    left: 25px;
-    right: 25px;
+
+    position: sticky;
+
+    bottom: 0;
+
+    left: 0;
+    right: 0;
+
+    margin-top: 35px;
+
+    padding-top: 15px;
+
+    background: #fffafc;
 
     display: flex;
-    justify-content: space-between;
+
+    justify-content:
+        space-between;
+
     align-items: center;
 }
 
+
 .page-number {
+
     font-size: 14px;
-    opacity: 0.65;
+
+    opacity: 0.6;
+
 }
 
-/* TIMELINE */
 
-.timeline {
-    margin: 30px auto;
-    max-width: 650px;
-    border-left: 3px solid #d83b67;
-    padding-left: 25px;
-}
+/* =========================
+   PHOTO MEMORY
+========================= */
 
-.timeline-item {
-    margin-bottom: 30px;
-}
+.memory {
 
-.timeline-item h3 {
-    margin-top: 0;
-}
+    max-width: 700px;
 
-/* PHOTOS */
+    margin:
+        20px auto;
 
-.photo-card {
     text-align: center;
-    margin: 22px auto;
-    max-width: 650px;
+
 }
 
-.photo-card img {
-    width: 190px;
-    height: 145px;
+
+.memory img {
+
+    width: 360px;
+
+    max-width: 90%;
+
+    height: 270px;
 
     object-fit: cover;
 
-    border-radius: 12px;
+    border-radius: 14px;
 
-    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    box-shadow:
+        0 8px 22px
+        rgba(0,0,0,0.2);
 
     cursor: pointer;
 
     transition: 0.3s;
 
-    margin: 6px;
 }
 
-.photo-card img:hover {
-    transform: scale(1.07) rotate(1deg);
+
+.memory img:hover {
+
+    transform:
+        scale(1.04)
+        rotate(1deg);
+
 }
 
-/* TWO PHOTO LAYOUT */
 
-.photo-row {
+.memory h3 {
+
+    font-size: 25px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.memory p {
+
+    font-style: italic;
+
+    font-size: 17px;
+
+}
+
+
+/* =========================
+   TWO PHOTO MEMORY
+========================= */
+
+.photo-pair {
+
     display: flex;
+
     justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
     flex-wrap: wrap;
+
+    margin-top: 30px;
+
 }
 
-/* MONTH CARDS */
+
+.photo-pair img {
+
+    width: 290px;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 22px
+        rgba(0,0,0,0.2);
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.photo-pair img:hover {
+
+    transform:
+        scale(1.05)
+        rotate(1deg);
+
+}
+
+
+.pair-caption {
+
+    text-align: center;
+
+    max-width: 650px;
+
+    margin:
+        25px auto;
+}
+
+
+/* =========================
+   STORY TEXT
+========================= */
+
+.story-text {
+
+    max-width: 650px;
+
+    margin:
+        30px auto;
+
+    font-size: 18px;
+
+}
+
+
+/* =========================
+   MONTH CARD
+========================= */
 
 .month-card {
-    background: #fff0f5;
-    border-radius: 15px;
-    padding: 18px;
-    margin: 15px auto;
-    max-width: 650px;
-}
-
-.month-card h3 {
-    margin-top: 0;
-}
-
-/* LITTLE THINGS */
-
-.little-things {
-    max-width: 600px;
-    margin: auto;
-}
-
-.little-thing {
-    background: #fff0f5;
-    border-radius: 12px;
-    padding: 12px 18px;
-    margin: 12px 0;
-}
-
-/* LETTER */
-
-.envelope {
-    font-size: 100px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.envelope:hover {
-    transform: scale(1.1);
-}
-
-.letter {
-    display: none;
 
     background: #fff0f5;
 
@@ -291,109 +452,220 @@ button:hover {
 
     padding: 25px;
 
-    margin: 15px auto;
+    max-width: 700px;
 
-    max-width: 650px;
+    margin:
+        20px auto;
 
-    animation: appear 0.5s ease;
 }
+
+
+/* =========================
+   LETTER
+========================= */
+
+.envelope {
+
+    font-size: 100px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.envelope:hover {
+
+    transform:
+        scale(1.1);
+
+}
+
+
+.letter {
+
+    display: none;
+
+    background: #fff0f5;
+
+    border-radius: 15px;
+
+    padding: 28px;
+
+    max-width: 680px;
+
+    margin:
+        20px auto;
+
+    animation:
+        appear 0.5s ease;
+
+}
+
 
 .letter.open {
+
     display: block;
+
 }
+
 
 @keyframes appear {
 
     from {
+
         opacity: 0;
-        transform: translateY(15px);
+
+        transform:
+            translateY(15px);
+
     }
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
+
     }
 
 }
 
-/* FINAL */
+
+/* =========================
+   FINAL PAGE
+========================= */
 
 .final {
+
     height: 100%;
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
     text-align: center;
+
 }
+
 
 .final h1 {
-    font-size: 55px;
+
+    font-size: 58px;
+
 }
+
 
 .final-heart {
-    font-size: 70px;
+
+    font-size: 75px;
+
 }
 
-/* FLOATING HEARTS */
+
+/* =========================
+   FLOATING HEARTS
+========================= */
 
 .floating-heart {
+
     position: fixed;
 
     pointer-events: none;
 
     font-size: 25px;
 
-    animation: floatUp 2s ease forwards;
+    animation:
+        floatUp 2s ease forwards;
 
     z-index: 999;
 }
 
+
 @keyframes floatUp {
 
     from {
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
+
         opacity: 1;
+
     }
 
     to {
-        transform: translateY(-180px);
+
+        transform:
+            translateY(-180px);
+
         opacity: 0;
+
     }
 
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width: 700px) {
 
     .story-page {
+
         padding: 30px;
+
     }
 
-    .photo-card img {
-        width: 135px;
-        height: 105px;
+
+    .memory img {
+
+        width: 280px;
+
+        height: 210px;
+
     }
+
+
+    .photo-pair img {
+
+        width: 230px;
+
+        height: 175px;
+
+    }
+
 
     h2 {
+
         font-size: 28px;
+
     }
 
+
     .cover h1 {
+
         font-size: 42px;
+
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
+
 
 <div class="book">
 
@@ -402,7 +674,10 @@ button:hover {
 <!-- COVER -->
 <!-- ================================================= -->
 
-<section class="story-page active" id="page0">
+<section
+    class="story-page active"
+    id="page0"
+>
 
     <div class="cover">
 
@@ -418,7 +693,9 @@ button:hover {
             Four months of us
         </p>
 
-        <button onclick="goToPage(1)">
+        <button
+            onclick="goToPage(1)"
+        >
             Begin Our Journey ♡
         </button>
 
@@ -428,84 +705,52 @@ button:hover {
 
 
 <!-- ================================================= -->
-<!-- CHAPTER 1 -->
+<!-- INTRO -->
 <!-- ================================================= -->
 
-<section class="story-page" id="page1">
+<section
+    class="story-page"
+    id="page1"
+>
 
     <h2>
-        Chapter One ♡
+        How It Started ♡
     </h2>
 
-    <p>
-        Four months ago, our story started.
-    </p>
+    <div class="story-text">
 
-    <p>
-        At the time, we probably didn't know how many
-        memories we were about to make together.
-    </p>
+        <p>
+            Four months ago, our story started.
+        </p>
 
-    <p>
-        What started with talking and spending time together
-        slowly became something that meant so much more.
-    </p>
+        <p>
+            At the time, we probably didn't know
+            how many memories we were about to make
+            together.
+        </p>
 
-    <div class="timeline">
+        <p>
+            What started with talking and spending
+            time together slowly became something
+            that meant so much more.
+        </p>
 
-        <div class="timeline-item">
-
-            <h3>
-                The Day I Asked You Out ❤️
-            </h3>
-
-            <p>
-                The day everything changed and we officially
-                became us.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <h3>
-                Asking Permission
-            </h3>
-
-            <p>
-                I even had to ask for permission to date you.
-                Looking back, that little moment became part
-                of the story too.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <h3>
-                Our First Date
-            </h3>
-
-            <p>
-                One of the first times we got to make a memory
-                that was completely ours.
-            </p>
-
-        </div>
+        <p>
+            So this is a little collection of the
+            moments that made these four months ours.
+        </p>
 
     </div>
 
 
     <div class="navigation">
 
-        <span class="page-number">
-            Chapter 1
+        <span>
+            Our Beginning
         </span>
 
         <button onclick="nextPage()">
-            Next →
+            Start → 
         </button>
 
     </div>
@@ -514,88 +759,24 @@ button:hover {
 
 
 <!-- ================================================= -->
-<!-- CHAPTER 2 -->
+<!-- FIRST DATE -->
 <!-- ================================================= -->
 
-<section class="story-page" id="page2">
+<section
+    class="story-page"
+    id="page2"
+>
 
     <h2>
-        The Beginning ❤️
+        Our First Date ❤️
     </h2>
 
 
-    <div class="photo-card">
+    <div class="memory">
 
         <img
-        src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/Day%20of%20asking%20out.jpeg"
-        onclick="makeHearts(event)"
-        >
-
-        <h3>
-            The Day I Asked You Out
-        </h3>
-
-        <p>
-            The day that started this whole chapter of our lives.
-        </p>
-
-    </div>
-
-
-    <div class="photo-card">
-
-        <img
-        src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/day%20I%20asked%20permission%20to%20date%20you.jpeg"
-        onclick="makeHearts(event)"
-        >
-
-        <h3>
-            The Permission Day ♡
-        </h3>
-
-        <p>
-            Another little moment that became an important part
-            of our story.
-        </p>
-
-    </div>
-
-
-    <div class="navigation">
-
-        <button onclick="previousPage()">
-            ← Back
-        </button>
-
-        <span class="page-number">
-            Chapter 2
-        </span>
-
-        <button onclick="nextPage()">
-            Next →
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- ================================================= -->
-<!-- CHAPTER 3 -->
-<!-- ================================================= -->
-
-<section class="story-page" id="page3">
-
-    <h2>
-        Our First Date 💗
-    </h2>
-
-
-    <div class="photo-card">
-
-        <img
-        src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/First%20Date.jpeg"
-        onclick="makeHearts(event)"
+            src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/First%20Date.jpeg"
+            onclick="makeHearts(event)"
         >
 
         <h3>
@@ -603,28 +784,14 @@ button:hover {
         </h3>
 
         <p>
-            One of the first memories we got to make together.
-            The beginning of all the dates and adventures that
-            would come after it.
+            One of the first memories we got to
+            make together.
         </p>
 
-    </div>
-
-
-    <div class="photo-card">
-
-        <img
-        src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/cute%20date.jpeg"
-        onclick="makeHearts(event)"
-        >
-
-        <h3>
-            Another Cute Date ♡
-        </h3>
-
         <p>
-            Another day where simply spending time together
-            became one of my favorite things.
+            The beginning of all the dates,
+            adventures, and memories that would
+            come after it.
         </p>
 
     </div>
@@ -636,8 +803,8 @@ button:hover {
             ← Back
         </button>
 
-        <span class="page-number">
-            Chapter 3
+        <span>
+            1
         </span>
 
         <button onclick="nextPage()">
@@ -650,59 +817,90 @@ button:hover {
 
 
 <!-- ================================================= -->
-<!-- CHAPTER 4 -->
+<!-- SECOND DATE -->
 <!-- ================================================= -->
 
-<section class="story-page" id="page4">
+<section
+    class="story-page"
+    id="page3"
+>
 
     <h2>
-        Summer Days ☀️
+        Our Second Date 💗
     </h2>
 
 
-    <div class="photo-card">
+    <div class="memory">
+
+        <img
+            src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/second%20date.jpeg"
+            onclick="makeHearts(event)"
+        >
 
         <h3>
-            Pool Day
+            Our Second Date
         </h3>
 
         <p>
-            It was a hot summer day with friends everywhere.
-            We enjoyed the day in the pool and I got to spend
-            time with you too.
+            Another day where getting to spend time
+            together became another memory I wanted
+            to keep.
         </p>
 
     </div>
 
 
-    <div class="photo-card">
+    <div class="navigation">
 
-        <h3>
-            Five Below → Pollo Campero 🍗
-        </h3>
+        <button onclick="previousPage()">
+            ← Back
+        </button>
 
-        <p>
-            We went to Five Below and bought some stuff,
-            then went to eat at Pollo Campero.
-        </p>
+        <span>
+            2
+        </span>
 
-        <p>
-            After going home, we did other things together,
-            like making slime and filming videos.
-        </p>
+        <button onclick="nextPage()">
+            Next →
+        </button>
 
     </div>
 
+</section>
 
-    <div class="photo-card">
+
+<!-- ================================================= -->
+<!-- PERMISSION -->
+<!-- ================================================= -->
+
+<section
+    class="story-page"
+    id="page4"
+>
+
+    <h2>
+        Asking Permission ♡
+    </h2>
+
+
+    <div class="memory">
+
+        <img
+            src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/day%20I%20asked%20permission%20to%20date%20you.jpeg"
+            onclick="makeHearts(event)"
+        >
 
         <h3>
-            Our Little Account 🎥
+            The Day I Asked Permission
         </h3>
 
         <p>
-            We even made an account for both of us.
-            Just another random thing that became part
+            Before everything officially became
+            ours, there was this little moment too.
+        </p>
+
+        <p>
+            Looking back, it became another part
             of our story.
         </p>
 
@@ -715,8 +913,8 @@ button:hover {
             ← Back
         </button>
 
-        <span class="page-number">
-            Chapter 4
+        <span>
+            3
         </span>
 
         <button onclick="nextPage()">
@@ -729,64 +927,38 @@ button:hover {
 
 
 <!-- ================================================= -->
-<!-- CHAPTER 5 -->
+<!-- ASKED OUT -->
 <!-- ================================================= -->
 
-<section class="story-page" id="page5">
+<section
+    class="story-page"
+    id="page5"
+>
 
     <h2>
-        The Little Adventures 🎒
+        The Day I Asked You Out ❤️
     </h2>
 
 
-    <div class="photo-card">
-
-        <h3>
-            School Shopping
-        </h3>
-
-        <p>
-            We went to buy school stuff together and somehow
-            made a normal shopping day into another memory.
-        </p>
-
-    </div>
-
-
-    <div class="photo-card">
-
-        <h3>
-            Ice Cream 🍦
-        </h3>
-
-        <p>
-            We spent time together, ate ice cream,
-            and just enjoyed being around each other.
-        </p>
-
-    </div>
-
-
-    <div class="photo-card">
-
-        <h3>
-            The Cute Hat 🧢
-        </h3>
-
-        <p>
-            We eventually found that cute hat...
-            and of course we had to take that cute picture.
-        </p>
-
-    </div>
-
-
-    <div class="photo-card">
+    <div class="memory">
 
         <img
-        src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/julies%20cute%20bday%20photo.jpeg"
-        onclick="makeHearts(event)"
+            src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/Day%20of%20asking%20out.jpeg"
+            onclick="makeHearts(event)"
         >
+
+        <h3>
+            The Day Everything Changed
+        </h3>
+
+        <p>
+            The day we officially became us.
+        </p>
+
+        <p>
+            One question that started an entire
+            chapter of our lives.
+        </p>
 
     </div>
 
@@ -797,8 +969,8 @@ button:hover {
             ← Back
         </button>
 
-        <span class="page-number">
-            Chapter 5
+        <span>
+            4
         </span>
 
         <button onclick="nextPage()">
@@ -811,79 +983,279 @@ button:hover {
 
 
 <!-- ================================================= -->
-<!-- CHAPTER 6 -->
+<!-- ONE MONTH -->
 <!-- ================================================= -->
 
-<section class="story-page" id="page6">
+<section
+    class="story-page"
+    id="page6"
+>
 
     <h2>
-        Our Months Together 🗓️
+        One Month ❤️
     </h2>
 
 
-    <div class="month-card">
+    <div class="photo-pair">
+
+        <img
+            src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/One%20month%20hangout.jpeg"
+            onclick="makeHearts(event)"
+        >
+
+        <img
+            src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/one%20month.jpeg"
+            onclick="makeHearts(event)"
+        >
+
+    </div>
+
+
+    <div class="pair-caption">
 
         <h3>
-            One Month ❤️
+            One Month Together
         </h3>
 
         <p>
-            One month of memories, laughs, dates,
-            and getting to know each other even more.
+            Our first month together.
+        </p>
+
+        <p>
+            Two pictures from the same part of
+            our story, both reminding me of how
+            much had already happened in just
+            one month.
         </p>
 
     </div>
 
 
-    <div class="month-card">
+    <div class="navigation">
+
+        <button onclick="previousPage()">
+            ← Back
+        </button>
+
+        <span>
+            5
+        </span>
+
+        <button onclick="nextPage()">
+            Next →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- CUTE DATE -->
+<!-- ================================================= -->
+
+<section
+    class="story-page"
+    id="page7"
+>
+
+    <h2>
+        Another Cute Date 💕
+    </h2>
+
+
+    <div class="memory">
+
+        <img
+            src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/cute%20date.jpeg"
+            onclick="makeHearts(event)"
+        >
 
         <h3>
-            Two Months ❤️
+            A Cute Little Memory
         </h3>
 
-        <div class="photo-row">
+        <p>
+            Another day where we got to spend time
+            together and make another memory.
+        </p>
 
-            <img
+    </div>
+
+
+    <div class="navigation">
+
+        <button onclick="previousPage()">
+            ← Back
+        </button>
+
+        <span>
+            6
+        </span>
+
+        <button onclick="nextPage()">
+            Next →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- TWO MONTHS -->
+<!-- ================================================= -->
+
+<section
+    class="story-page"
+    id="page8"
+>
+
+    <h2>
+        Two Months ❤️
+    </h2>
+
+
+    <div class="memory">
+
+        <img
             src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/2%20month.jpeg"
             onclick="makeHearts(event)"
-            style="width:150px;height:120px;object-fit:cover;border-radius:10px;"
-            >
+        >
 
-        </div>
+        <h3>
+            Two Months Together
+        </h3>
 
         <p>
-            Two months together and another memory
-            added to our story.
+            Another month of us.
+        </p>
+
+        <p>
+            Another month of memories,
+            laughs, and little moments.
         </p>
 
     </div>
 
 
-    <div class="month-card">
+    <div class="navigation">
+
+        <button onclick="previousPage()">
+            ← Back
+        </button>
+
+        <span>
+            7
+        </span>
+
+        <button onclick="nextPage()">
+            Next →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- JULIE'S BIRTHDAY -->
+<!-- ================================================= -->
+
+<section
+    class="story-page"
+    id="page9"
+>
+
+    <h2>
+        Julie's Birthday 🎂
+    </h2>
+
+
+    <div class="memory">
+
+        <img
+            src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/julies%20cute%20bday%20photo.jpeg"
+            onclick="makeHearts(event)"
+        >
 
         <h3>
-            Three Months ❤️
+            A Birthday Memory
         </h3>
 
-        <div class="photo-row">
+        <p>
+            Another day that became part of our
+            four-month journey.
+        </p>
 
-            <img
+    </div>
+
+
+    <div class="navigation">
+
+        <button onclick="previousPage()">
+            ← Back
+        </button>
+
+        <span>
+            8
+        </span>
+
+        <button onclick="nextPage()">
+            Next →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- THREE MONTHS -->
+<!-- ================================================= -->
+
+<section
+    class="story-page"
+    id="page10"
+>
+
+    <h2>
+        Three Months ❤️
+    </h2>
+
+
+    <div class="photo-pair">
+
+        <img
             src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/3%20months.jpeg"
             onclick="makeHearts(event)"
-            style="width:150px;height:120px;object-fit:cover;border-radius:10px;"
-            >
+        >
 
-            <img
+        <img
             src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/3%20montj.jpeg"
             onclick="makeHearts(event)"
-            style="width:150px;height:120px;object-fit:cover;border-radius:10px;"
-            >
+        >
 
-        </div>
+    </div>
+
+
+    <div class="pair-caption">
+
+        <h3>
+            Three Months Together
+        </h3>
 
         <p>
-            Two different pictures.
-            One special day.
+            Two pictures from the same day.
+        </p>
+
+        <p>
+            One of us blowing the candle,
+            and another little memory from the
+            same day.
+        </p>
+
+        <p>
             Three months of us. ❤️
         </p>
 
@@ -896,8 +1268,8 @@ button:hover {
             ← Back
         </button>
 
-        <span class="page-number">
-            Chapter 6
+        <span>
+            9
         </span>
 
         <button onclick="nextPage()">
@@ -910,43 +1282,188 @@ button:hover {
 
 
 <!-- ================================================= -->
-<!-- CHAPTER 7 -->
+<!-- TARGET -->
 <!-- ================================================= -->
 
-<section class="story-page" id="page7">
+<section
+    class="story-page"
+    id="page11"
+>
+
+    <h2>
+        Another Little Memory 🎯
+    </h2>
+
+
+    <div class="memory">
+
+        <img
+            src="https://raw.githubusercontent.com/kennthgames-cell/four-months/main/target%20photo%20cute.jpeg"
+            onclick="makeHearts(event)"
+        >
+
+        <h3>
+            Target ❤️
+        </h3>
+
+        <p>
+            Another one of those little moments
+            that became part of our story.
+        </p>
+
+        <p>
+            A simple picture, but another memory
+            I get to keep from these four months.
+        </p>
+
+    </div>
+
+
+    <div class="navigation">
+
+        <button onclick="previousPage()">
+            ← Back
+        </button>
+
+        <span>
+            10
+        </span>
+
+        <button onclick="nextPage()">
+            Next →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- LITTLE THINGS -->
+<!-- ================================================= -->
+
+<section
+    class="story-page"
+    id="page12"
+>
+
+    <h2>
+        The Little Things ♡
+    </h2>
+
+
+    <div class="story-text">
+
+        <p>
+            Some of my favorite parts of us aren't
+            necessarily the biggest moments.
+        </p>
+
+        <p>
+            They're the random conversations.
+        </p>
+
+        <p>
+            The inside jokes.
+        </p>
+
+        <p>
+            The times we couldn't stop laughing.
+        </p>
+
+        <p>
+            The random days that somehow became
+            memories.
+        </p>
+
+        <p>
+            The little things that probably wouldn't
+            mean much to anyone else...
+        </p>
+
+        <p style="text-align:center; font-size:22px;">
+
+            But they mean something to me because
+            they're ours. ❤️
+
+        </p>
+
+    </div>
+
+
+    <div style="text-align:center;">
+
+        <button
+            onclick="makeHearts(event)"
+        >
+            A Little Surprise ❤️
+        </button>
+
+    </div>
+
+
+    <div class="navigation">
+
+        <button onclick="previousPage()">
+            ← Back
+        </button>
+
+        <span>
+            11
+        </span>
+
+        <button onclick="nextPage()">
+            Next →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- FOUR MONTHS -->
+<!-- ================================================= -->
+
+<section
+    class="story-page"
+    id="page13"
+>
 
     <h2>
         Four Months ❤️
     </h2>
 
 
-    <div class="final">
+    <div class="story-text">
 
-        <p style="font-size:22px; max-width:600px;">
-
+        <p>
             Four months might not sound like forever,
-
-            but when I look back at everything we've already
-            experienced together, it feels like we've made
-            so many memories.
-
+            but when I look back at everything we've
+            already experienced together, it feels like
+            we've made so many memories.
         </p>
 
-
-        <p style="font-size:22px; max-width:600px;">
-
+        <p>
             Four months of laughs.
-
-            Four months of adventures.
-
-            Four months of random moments.
-
-            Four months of being us.
-
         </p>
 
+        <p>
+            Four months of adventures.
+        </p>
 
-        <p style="font-size:25px;">
+        <p>
+            Four months of random moments.
+        </p>
+
+        <p>
+            Four months of being us.
+        </p>
+
+        <p style="
+            text-align:center;
+            font-size:25px;
+        ">
 
             And I wouldn't trade any of it. ❤️
 
@@ -961,86 +1478,8 @@ button:hover {
             ← Back
         </button>
 
-        <span class="page-number">
-            Chapter 7
-        </span>
-
-        <button onclick="nextPage()">
-            Next →
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- ================================================= -->
-<!-- CHAPTER 8 -->
-<!-- ================================================= -->
-
-<section class="story-page" id="page8">
-
-    <h2>
-        The Little Things ♡
-    </h2>
-
-
-    <div class="little-things">
-
-        <div class="little-thing">
-            The random conversations.
-        </div>
-
-        <div class="little-thing">
-            The inside jokes.
-        </div>
-
-        <div class="little-thing">
-            The times we couldn't stop laughing.
-        </div>
-
-        <div class="little-thing">
-            The random days that somehow became memories.
-        </div>
-
-        <div class="little-thing">
-            The little things that probably wouldn't mean
-            much to anyone else.
-        </div>
-
-        <div class="little-thing">
-            But they mean something to me because they're ours.
-        </div>
-
-    </div>
-
-
-    <p style="text-align:center; margin-top:25px;">
-
-        Sometimes it's not the biggest moments that matter.
-
-        It's all the little ones we get to share.
-
-    </p>
-
-
-    <div style="text-align:center;">
-
-        <button onclick="makeHearts(event)">
-            A little surprise ❤️
-        </button>
-
-    </div>
-
-
-    <div class="navigation">
-
-        <button onclick="previousPage()">
-            ← Back
-        </button>
-
-        <span class="page-number">
-            Chapter 8
+        <span>
+            12
         </span>
 
         <button onclick="nextPage()">
@@ -1056,7 +1495,10 @@ button:hover {
 <!-- LETTER -->
 <!-- ================================================= -->
 
-<section class="story-page" id="page9">
+<section
+    class="story-page"
+    id="page14"
+>
 
     <h2>
         A Letter For You 💌
@@ -1064,7 +1506,9 @@ button:hover {
 
 
     <p style="text-align:center;">
+
         Click the envelope.
+
     </p>
 
 
@@ -1085,38 +1529,34 @@ button:hover {
             Happy four months ❤️
         </p>
 
-
         <p>
-            I don't even know where to start because somehow
-            four months feels both really short and like we've
-            already made so many memories.
+            I don't even know where to start because
+            somehow four months feels both really short
+            and like we've already made so many memories.
         </p>
-
 
         <p>
             From our first date, to random days together,
-            getting food, going places, laughing, making videos,
-            and just being around each other, I've loved getting
-            to experience all of it with you.
+            getting food, going places, laughing, making
+            videos, and just being around each other,
+            I've loved getting to experience all of it
+            with you.
         </p>
-
 
         <p>
             Thank you for being part of all these memories
-            and for making even the smallest moments feel special.
+            and for making even the smallest moments feel
+            special.
         </p>
-
 
         <p>
             I can't wait to see what other memories we make
             and what the next pages of our story look like.
         </p>
 
-
         <p>
             Happy four months ❤️
         </p>
-
 
         <p>
             Love,<br>
@@ -1132,8 +1572,8 @@ button:hover {
             ← Back
         </button>
 
-        <span class="page-number">
-            Chapter 9
+        <span>
+            13
         </span>
 
         <button onclick="nextPage()">
@@ -1146,10 +1586,13 @@ button:hover {
 
 
 <!-- ================================================= -->
-<!-- FINAL PAGE -->
+<!-- THE END -->
 <!-- ================================================= -->
 
-<section class="story-page" id="page10">
+<section
+    class="story-page"
+    id="page15"
+>
 
     <div class="final">
 
@@ -1163,12 +1606,15 @@ button:hover {
         </h1>
 
 
-        <p style="font-size:25px;">
+        <p style="font-size:27px;">
             Not really.
         </p>
 
 
-        <p style="font-size:21px; max-width:600px;">
+        <p style="
+            font-size:21px;
+            max-width:600px;
+        ">
 
             Our four-month journey might have reached
             the end of this little book...
@@ -1176,21 +1622,29 @@ button:hover {
         </p>
 
 
-        <p style="font-size:21px; max-width:600px;">
+        <p style="
+            font-size:21px;
+            max-width:600px;
+        ">
 
             But our story is still being written.
 
         </p>
 
 
-        <p style="font-style:italic; font-size:20px;">
+        <p style="
+            font-style:italic;
+            font-size:20px;
+        ">
 
             Here's to all the pages we haven't written yet. ❤️
 
         </p>
 
 
-        <button onclick="makeHearts(event)">
+        <button
+            onclick="makeHearts(event)"
+        >
             Here's to our next chapter ♡
         </button>
 
@@ -1203,7 +1657,7 @@ button:hover {
             ← Back
         </button>
 
-        <span class="page-number">
+        <span>
             The End ❤️
         </span>
 
@@ -1219,25 +1673,36 @@ button:hover {
 
 <script>
 
-/* ================================================= */
-/* PAGE SYSTEM */
-/* ================================================= */
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
 
 let currentPage = 0;
 
-const totalPages = 11;
+const totalPages = 16;
 
 
 function showPage(number) {
 
-    for (let i = 0; i < totalPages; i++) {
+    for (
+        let i = 0;
+        i < totalPages;
+        i++
+    ) {
 
         const page =
-            document.getElementById("page" + i);
+            document.getElementById(
+                "page" + i
+            );
+
 
         if (page) {
 
-            page.classList.remove("active");
+            page.classList.remove(
+                "active"
+            );
 
         }
 
@@ -1245,26 +1710,41 @@ function showPage(number) {
 
 
     const selected =
-        document.getElementById("page" + number);
+        document.getElementById(
+            "page" + number
+        );
 
 
     if (selected) {
 
-        selected.classList.add("active");
+        selected.classList.add(
+            "active"
+        );
 
     }
 
 
     currentPage = number;
 
+
+    window.scrollTo(
+        0,
+        0
+    );
+
 }
 
 
 function nextPage() {
 
-    if (currentPage < totalPages - 1) {
+    if (
+        currentPage <
+        totalPages - 1
+    ) {
 
-        showPage(currentPage + 1);
+        showPage(
+            currentPage + 1
+        );
 
         makeHearts();
 
@@ -1275,9 +1755,13 @@ function nextPage() {
 
 function previousPage() {
 
-    if (currentPage > 0) {
+    if (
+        currentPage > 0
+    ) {
 
-        showPage(currentPage - 1);
+        showPage(
+            currentPage - 1
+        );
 
     }
 
@@ -1293,19 +1777,28 @@ function goToPage(number) {
 }
 
 
-/* ================================================= */
-/* HEART EFFECT */
-/* ================================================= */
+/* =========================
+   HEARTS
+========================= */
+
 
 function makeHearts(event) {
 
-    for (let i = 0; i < 10; i++) {
+    for (
+        let i = 0;
+        i < 10;
+        i++
+    ) {
 
         const heart =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
+
 
         heart.className =
             "floating-heart";
+
 
         heart.innerHTML =
             Math.random() > 0.5
@@ -1313,53 +1806,63 @@ function makeHearts(event) {
             : "♡";
 
 
+        const x =
+            event
+            ? event.clientX
+            : window.innerWidth / 2;
+
+
+        const y =
+            event
+            ? event.clientY
+            : window.innerHeight / 2;
+
+
         heart.style.left =
+            x +
             (
-                event
-                ? event.clientX
-                : window.innerWidth / 2
-            )
-            +
-            (Math.random() * 120 - 60)
-            +
+                Math.random() * 120
+                - 60
+            ) +
             "px";
 
 
         heart.style.top =
-            (
-                event
-                ? event.clientY
-                : window.innerHeight / 2
-            )
-            +
+            y +
             "px";
 
 
-        document.body.appendChild(heart);
+        document.body.appendChild(
+            heart
+        );
 
 
-        setTimeout(() => {
-
-            heart.remove();
-
-        }, 2000);
+        setTimeout(
+            () => heart.remove(),
+            2000
+        );
 
     }
 
 }
 
 
-/* ================================================= */
-/* LETTER */
-/* ================================================= */
+/* =========================
+   LETTER
+========================= */
+
 
 function openLetter() {
 
     const letter =
-        document.getElementById("letter");
+        document.getElementById(
+            "letter"
+        );
 
 
-    letter.classList.toggle("open");
+    letter.classList.toggle(
+        "open"
+    );
 
 
     makeHearts();
@@ -1367,6 +1870,7 @@ function openLetter() {
 }
 
 </script>
+
 
 </body>
 </html>
